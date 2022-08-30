@@ -10,15 +10,15 @@ public class CamFollow : MonoBehaviour
 
     public Vector3 minValue, maxValue;
 
-    private void FixedUpdate()
-    {
-        Follow();
-    }
-
-    void Follow()
-    {
-        Vector3 targetPosition = target.position + offset;
-        Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, smoothValue*Time.fixedDeltaTime);
-        transform.position = targetPosition;
-    }
+   //  private void FixedUpdate()
+   //  {
+   //      Follow();
+   //  }
+   // 
+   //  void Follow()
+   //  {
+   //      Vector3 targetPosition = target.position + offset;
+   //      Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, smoothValue*Time.fixedDeltaTime);
+   //      transform.position = targetPosition;
+   //  }
 }

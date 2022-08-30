@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public GridManager gridManager;
 
     public GameObject Food;
     public GameObject PwrUps;
@@ -16,28 +17,32 @@ public class Spawner : MonoBehaviour
         SpawnFood();
         SpawnPwrUp();
     }
-    private void SpawnFood()
+
+
+    public void SpawnFood()
     {
-        int x = Random.Range(-18, 18);
-        int y = Random.Range(-18, 18);
+        int x = Random.Range(0, gridManager.gridWidth - 1);
+        int y = Random.Range(0, gridManager.gridHeight - 1);
         transform.position = new Vector2(x, y);
 
 
-        Vector2 nextPos = transform.position;
-        GameObject newBodyPart = Instantiate(Food);
-        newBodyPart.transform.position = nextPos;
+        Vector2 newPos = transform.position;
+        GameObject food = Instantiate(Food);
+        food.transform.position = newPos;
+
+
     }
 
     private void SpawnPwrUp()
     {
-        int x = Random.Range(-18, 18);
-        int y = Random.Range(-18, 18);
+        int x = Random.Range(0, gridManager.gridWidth -1);
+        int y = Random.Range(0, gridManager.gridHeight -1);
         transform.position = new Vector2(x, y);
 
 
-        Vector2 nextPos = transform.position;
-        GameObject newBodyPart = Instantiate(PwrUps);
-        newBodyPart.transform.position = nextPos;
+        Vector2 newPos = transform.position;
+        GameObject pwrUp = Instantiate(PwrUps);
+        pwrUp.transform.position = newPos;
     }
 
 
